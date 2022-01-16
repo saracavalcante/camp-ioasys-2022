@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Permissões</string>
+    <string name="solicitar_localizao">Solicitar Localização</string>
+    <string name="lets_start">Let\'s start!</string>
+    <string name="abrir_camera">Abrir Câmera</string>
+</resources>
