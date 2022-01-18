@@ -41,6 +41,8 @@
         android:layout_marginTop="80dp"
         android:hint="@string/email"
         android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:boxStrokeColor="@color/black_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtLabel"
@@ -64,6 +66,8 @@
         android:layout_marginHorizontal="16dp"
         android:hint="@string/password"
         android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:boxStrokeColor="@color/black_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFieldEmail">
@@ -72,6 +76,7 @@
             android:id="@+id/txtFieldEditPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:background="@color/black_input"
             android:textColor="@color/white"/>
 
@@ -89,6 +94,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/txtFieldPassword"
         app:layout_constraintEnd_toEndOf="@+id/txtFieldPassword"
         app:layout_constraintTop_toTopOf="@+id/txtFieldPassword"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/errorMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/error_text"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/txtFieldPassword"
+        app:layout_constraintEnd_toEndOf="@+id/txtFieldPassword"
+        tools:visibility="visible"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
