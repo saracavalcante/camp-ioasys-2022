@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ioasys Books</string>
+    <string name="books">Books</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+</resources>
