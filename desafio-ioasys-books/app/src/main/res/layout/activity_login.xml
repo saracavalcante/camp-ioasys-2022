@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
     
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtLabel"
@@ -23,25 +23,28 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ioasys_logo"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginBottom="110dp"
         android:drawablePadding="8dp"
         android:gravity="center"
         android:text="@string/books"
         android:textColor="@color/white"
         android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/txtFieldEmail"
+        app:layout_constraintVertical_chainStyle="packed"/>
     
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtFieldEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="80dp"
         android:hint="@string/email"
         android:textColorHint="@color/white"
         app:hintTextColor="@color/white"
         app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:boxStrokeColor="@color/black_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +71,7 @@
         app:hintTextColor="@color/white"
         app:boxStrokeColor="@color/black_input"
         app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFieldEmail">
@@ -83,7 +87,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnEnterButton"
+        android:id="@+id/enterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -96,7 +100,7 @@
         app:layout_constraintTop_toTopOf="@+id/txtFieldPassword"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/errorMessage"
+        android:id="@+id/txtError"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

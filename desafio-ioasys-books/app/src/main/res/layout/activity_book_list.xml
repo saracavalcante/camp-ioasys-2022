@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/books_background_images"
+    tools:context=".BookListActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ioasys_logo"
+        app:drawableTint="@color/secondary_black"
+        android:layout_marginTop="26dp"
+        android:layout_marginStart="16dp"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:text="@string/books"
+        android:textColor="@color/secondary_black"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btLogOut"
+        android:background="@drawable/ic_log_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtLabel"
+        app:layout_constraintBottom_toBottomOf="@id/txtLabel"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
