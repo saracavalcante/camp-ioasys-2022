@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IoasysBooks">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.BookListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,10 +1,10 @@
-package br.com.ioasys.ioasysbooks
+package br.com.ioasys.ioasysbooks.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
+import br.com.ioasys.ioasysbooks.R
 import com.google.android.material.button.MaterialButton
 
 class LoginActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         enterButton.setOnClickListener {
-            val intent = Intent(this@LoginActivity, BookListActivity::class.java)
+            val intent = Intent(this, BookListActivity::class.java)
             startActivity(intent)
         }
     }

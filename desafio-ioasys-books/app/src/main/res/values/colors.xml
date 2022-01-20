@@ -11,4 +11,7 @@
     <color name="black_input">#52000000</color>
     <color name="pink">#B22E6F</color>
     <color name="secondary_black">#333333</color>
+    <color name="secondary_black_transparency">#33333333</color>
+    <color name="subtitle">#AB2680</color>
+    <color name="description">#999999</color>
 </resources>
