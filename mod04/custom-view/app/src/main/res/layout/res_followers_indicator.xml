@@ -10,15 +10,15 @@
         android:id="@+id/tvCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="199"
         android:textStyle="bold"
+        android:text="500"
         android:textColor="#333333"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Publicações"
-        android:textColor="#333333"/>
+        android:textColor="#333333"
+        android:text="Followers"/>
 
 </LinearLayout>
