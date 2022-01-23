@@ -1,4 +1,4 @@
-package br.com.ioasys.fragments2
+package br.com.ioasys.fragments
 
 import org.junit.Test
 

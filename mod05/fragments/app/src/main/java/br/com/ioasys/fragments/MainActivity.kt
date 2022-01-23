@@ -1,11 +1,11 @@
-package br.com.ioasys.fragments2
+package br.com.ioasys.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import br.com.ioasys.fragments2.fragments.FragmentExample
+import br.com.ioasys.fragments.fragments.FragmentExample
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +25,13 @@ class MainActivity : AppCompatActivity() {
             "USER_AGE" to 24
         )
 
+        val bundleObj = bundleOf(
+            "PERSON" to Person("Sara", 24)
+        )
+
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            add<FragmentExample>(R.id.fragmentContainerView, args = bundle)
+            add<FragmentExample>(R.id.fragmentContainerView, args = bundleObj)
         }
     }
 }

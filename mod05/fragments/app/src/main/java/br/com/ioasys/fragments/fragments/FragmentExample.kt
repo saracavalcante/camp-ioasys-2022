@@ -1,14 +1,11 @@
-package br.com.ioasys.fragments2.fragments
+package br.com.ioasys.fragments.fragments
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import br.com.ioasys.fragments2.R
+import br.com.ioasys.fragments.Person
+import br.com.ioasys.fragments.R
 
 class FragmentExample : Fragment(R.layout.fragment_example) {
 
@@ -19,10 +16,12 @@ class FragmentExample : Fragment(R.layout.fragment_example) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val userAge = requireArguments().getInt("USER_AGE")
-        val userName = requireArguments().getString("USER_NAME")
+        val person = requireArguments().getSerializable("PERSON") as Person
 
-        Log.i(TAG, "onCreate $userAge - $userName")
+//        val userAge = requireArguments().getInt("USER_AGE")
+//        val userName = requireArguments().getString("USER_NAME")
+
+        Log.i(TAG, "onCreate ${person.age} - ${person.name}")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
