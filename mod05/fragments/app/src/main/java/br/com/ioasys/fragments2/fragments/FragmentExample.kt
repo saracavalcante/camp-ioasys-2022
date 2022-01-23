@@ -18,7 +18,11 @@ class FragmentExample : Fragment(R.layout.fragment_example) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i(TAG, "onCreate")
+
+        val userAge = requireArguments().getInt("USER_AGE")
+        val userName = requireArguments().getString("USER_NAME")
+
+        Log.i(TAG, "onCreate $userAge - $userName")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
