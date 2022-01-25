@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.ioasys.ioasysbooks.R
 import br.com.ioasys.ioasysbooks.databinding.BottomSheetBookDetailsBinding
-import br.com.ioasys.ioasysbooks.model.Book
+import br.com.ioasys.ioasysbooks.domain_model.Book
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

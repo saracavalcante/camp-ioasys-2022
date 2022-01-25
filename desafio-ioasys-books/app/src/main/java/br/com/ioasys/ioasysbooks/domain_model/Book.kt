@@ -1,4 +1,4 @@
-package br.com.ioasys.ioasysbooks.model
+package br.com.ioasys.ioasysbooks.domain_model
 
 data class Book(
     val id: Int,

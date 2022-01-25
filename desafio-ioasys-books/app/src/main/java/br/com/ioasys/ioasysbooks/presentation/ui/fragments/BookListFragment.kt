@@ -9,7 +9,7 @@ import androidx.navigation.fragment.navArgs
 import br.com.ioasys.ioasysbooks.presentation.adapter.BookClickListener
 import br.com.ioasys.ioasysbooks.presentation.adapter.BookListAdapter
 import br.com.ioasys.ioasysbooks.databinding.FragmentBookListBinding
-import br.com.ioasys.ioasysbooks.model.Book
+import br.com.ioasys.ioasysbooks.domain_model.Book
 
 class BookListFragment : Fragment(), BookClickListener {
 

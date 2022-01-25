@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import br.com.ioasys.ioasysbooks.databinding.BookItemBinding
-import br.com.ioasys.ioasysbooks.model.Book
+import br.com.ioasys.ioasysbooks.domain_model.Book
 
 class BookListAdapter(
 
