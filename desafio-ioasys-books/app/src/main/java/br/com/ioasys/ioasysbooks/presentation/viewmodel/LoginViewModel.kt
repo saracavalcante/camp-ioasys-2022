@@ -1,11 +1,12 @@
 package br.com.ioasys.ioasysbooks.presentation.viewmodel
 
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.ioasys.ioasysbooks.domain_model.exception.LoginException
-import br.com.ioasys.ioasysbooks.util.ViewState
+import br.com.ioasys.ioasysbooks.util.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -18,15 +19,19 @@ class LoginViewModel: ViewModel() {
 
         viewModelScope.launch {
 
-            _loggedUserViewState.value = ViewState.loading
+            _loggedUserViewState.postLoading()
 
             delay(2_000)
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                _loggedUserViewState.value = ViewState.Success(true)
+                _loggedUserViewState.postSuccess(true)
             } else {
-                _loggedUserViewState.value = ViewState.Error(LoginException())
+                _loggedUserViewState.postError(LoginException())
             }
         }
+    }
+
+    fun resetViewState() {
+        _loggedUserViewState.postNeutral()
     }
 }

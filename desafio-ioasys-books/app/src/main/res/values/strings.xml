@@ -22,4 +22,6 @@
     <string name="publicacao">Publicação</string>
     <string name="idioma">Idioma</string>
     <string name="ingles">Inglês</string>
+    <string name="placeholder_error">Não encontramos nenhum livro com esses termos.</string>
+    <string name="list_empty">Não encontramos nenhum\nlivro com esses termos.</string>
 </resources>

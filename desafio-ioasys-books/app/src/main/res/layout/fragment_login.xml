@@ -56,7 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_background_input"
-            android:textColor="@color/white"/>
+            android:singleLine="true"
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,9 +81,10 @@
             android:id="@+id/txtFieldEditPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:background="@drawable/bg_background_input"
-            android:textColor="@color/white"/>
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

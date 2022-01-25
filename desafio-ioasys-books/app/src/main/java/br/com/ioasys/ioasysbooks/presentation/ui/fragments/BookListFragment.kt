@@ -1,24 +1,28 @@
 package br.com.ioasys.ioasysbooks.presentation.ui.fragments
 
+import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.navArgs
+import androidx.fragment.app.viewModels
 import br.com.ioasys.ioasysbooks.presentation.adapter.BookClickListener
 import br.com.ioasys.ioasysbooks.presentation.adapter.BookListAdapter
 import br.com.ioasys.ioasysbooks.databinding.FragmentBookListBinding
 import br.com.ioasys.ioasysbooks.domain_model.Book
+import br.com.ioasys.ioasysbooks.domain_model.exception.EmptyBookListException
+import br.com.ioasys.ioasysbooks.presentation.viewmodel.BookListViewModel
+import br.com.ioasys.ioasysbooks.util.ViewState
 
 class BookListFragment : Fragment(), BookClickListener {
-
-    private val args: BookListFragmentArgs by navArgs()
 
     private lateinit var bookListAdapter: BookListAdapter
 
     private var _binding: FragmentBookListBinding? = null
     private val binding: FragmentBookListBinding get() = _binding!!
+
+    private val viewModel: BookListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,22 +34,54 @@ class BookListFragment : Fragment(), BookClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setBookListData()
-        args.itemCount
+        configureListeners()
+        addObserver()
+    }
+
+    private fun configureListeners() {
+        binding.editSearch.textChangeListener = { input ->
+            viewModel.search(input)
+        }
     }
 
     private fun setBookListData() {
         bookListAdapter = BookListAdapter(this)
         binding.rvBooks.adapter = bookListAdapter
+        viewModel.search()
+    }
 
-        bookListAdapter.submitList(Book.getMockList())
+    private fun addObserver() {
+        viewModel.bookListViewState.observe(viewLifecycleOwner) { state ->
+
+            when(state) {
+                is ViewState.Success -> {
+                    showEmptyError(false)
+                    bookListAdapter.submitList(state.data)
+                }
+                is ViewState.Error -> {
+                    when(state.throwable) {
+                        is EmptyBookListException -> {
+                            bookListAdapter.submitList(listOf())
+                            showEmptyError(true)
+                        }
+                        else -> Unit
+                    }
+                }
+                else -> Unit
+            }
+        }
+    }
+
+    private fun showEmptyError(hasError: Boolean) {
+        binding.tvEmptyList.visibility = if (hasError) View.VISIBLE else View.GONE
+    }
+
+    override fun onBookClickListener(book: Book) {
+        BookDetailsBottomSheet.newInstance(book).show(childFragmentManager, "book")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onBookClickListener(book: Book) {
-        BookDetailsBottomSheet.newInstance(book).show(childFragmentManager, "book")
     }
 }

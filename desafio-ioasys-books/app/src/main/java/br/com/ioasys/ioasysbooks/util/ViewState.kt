@@ -13,4 +13,6 @@ sealed class ViewState<out T> {
     data class Error(
         val throwable: Throwable
     ) : ViewState<Nothing>()
+
+    object Neutral: ViewState<Nothing>()
 }
