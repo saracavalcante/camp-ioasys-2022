@@ -6,18 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import br.com.ioasys.ioasysbooks.databinding.FragmentLoginBinding
 import br.com.ioasys.ioasysbooks.presentation.viewmodel.LoginViewModel
 import br.com.ioasys.ioasysbooks.util.ViewState
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding: FragmentLoginBinding get() = _binding!!
 
-    private val viewModel : LoginViewModel by viewModels()
+    private val loginViewModel : LoginViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +36,7 @@ class LoginFragment : Fragment() {
     private fun setOnClickListener() {
         binding.enterButton.setOnClickListener {
             binding.run {
-                viewModel.login(
+                loginViewModel.login(
                     txtFieldEditEmail.text.toString(),
                     txtFieldEditPassword.text.toString()
                 )
@@ -52,7 +52,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun addObserver() {
-        viewModel.loggedUserViewState.observe(viewLifecycleOwner) { state ->
+        loginViewModel.loggedUserViewState.observe(viewLifecycleOwner) { state ->
 
             when(state) {
                 is ViewState.Success -> {
@@ -74,7 +74,7 @@ class LoginFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModel.resetViewState()
+        loginViewModel.resetViewState()
         _binding = null
     }
 }

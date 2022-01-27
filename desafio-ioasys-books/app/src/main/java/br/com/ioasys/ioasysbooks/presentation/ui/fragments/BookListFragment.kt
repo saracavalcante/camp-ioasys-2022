@@ -1,19 +1,18 @@
 package br.com.ioasys.ioasysbooks.presentation.ui.fragments
 
-import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import br.com.ioasys.ioasysbooks.presentation.adapter.BookClickListener
 import br.com.ioasys.ioasysbooks.presentation.adapter.BookListAdapter
 import br.com.ioasys.ioasysbooks.databinding.FragmentBookListBinding
-import br.com.ioasys.ioasysbooks.domain_model.Book
-import br.com.ioasys.ioasysbooks.domain_model.exception.EmptyBookListException
+import br.com.ioasys.ioasysbooks.domain.model.Book
+import br.com.ioasys.ioasysbooks.domain.exception.EmptyBookListException
 import br.com.ioasys.ioasysbooks.presentation.viewmodel.BookListViewModel
 import br.com.ioasys.ioasysbooks.util.ViewState
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookListFragment : Fragment(), BookClickListener {
 
@@ -22,7 +21,7 @@ class BookListFragment : Fragment(), BookClickListener {
     private var _binding: FragmentBookListBinding? = null
     private val binding: FragmentBookListBinding get() = _binding!!
 
-    private val viewModel: BookListViewModel by viewModels()
+    private val booksviewModel: BookListViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,18 +39,18 @@ class BookListFragment : Fragment(), BookClickListener {
 
     private fun configureListeners() {
         binding.editSearch.textChangeListener = { input ->
-            viewModel.search(input)
+            booksviewModel.search(input)
         }
     }
 
     private fun setBookListData() {
         bookListAdapter = BookListAdapter(this)
         binding.rvBooks.adapter = bookListAdapter
-        viewModel.search()
+        booksviewModel.search()
     }
 
     private fun addObserver() {
-        viewModel.bookListViewState.observe(viewLifecycleOwner) { state ->
+        booksviewModel.bookListViewState.observe(viewLifecycleOwner) { state ->
 
             when(state) {
                 is ViewState.Success -> {
@@ -81,7 +80,7 @@ class BookListFragment : Fragment(), BookClickListener {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
         _binding = null
+        super.onDestroyView()
     }
 }

@@ -8,11 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import br.com.ioasys.ioasysbooks.R
 import br.com.ioasys.ioasysbooks.databinding.BottomSheetBookDetailsBinding
-import br.com.ioasys.ioasysbooks.domain_model.Book
+import br.com.ioasys.ioasysbooks.domain.model.Book
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-
 
 class BookDetailsBottomSheet : BottomSheetDialogFragment() {
 
@@ -70,16 +69,16 @@ class BookDetailsBottomSheet : BottomSheetDialogFragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     companion object {
         fun newInstance(book: Book? = null): BookDetailsBottomSheet {
             return BookDetailsBottomSheet().apply {
                 this.book = book
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
