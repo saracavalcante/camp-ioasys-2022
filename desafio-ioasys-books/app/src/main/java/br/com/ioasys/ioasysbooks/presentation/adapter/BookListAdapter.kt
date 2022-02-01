@@ -2,11 +2,13 @@ package br.com.ioasys.ioasysbooks.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import br.com.ioasys.ioasysbooks.R
 import br.com.ioasys.ioasysbooks.databinding.BookItemBinding
 import br.com.ioasys.ioasysbooks.domain.model.Book
+import coil.load
 
 class BookListAdapter(
 
@@ -38,11 +40,15 @@ class BookListAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(book: Book) {
             binding.apply {
-                tvBookTitle.text = book.name
+                tvBookTitle.text = book.title
                 tvBookSubtitle.text = book.author
                 tvBookPages.text = book.pages
                 tvBookEditor.text = book.editor
                 tvBookDate.text = book.date
+
+                imgBook.load(book.imageUrl) {
+                    error(R.drawable.book_image)
+                }
 
                 root.setOnClickListener {
                     onBookClickListener.onBookClickListener(book)

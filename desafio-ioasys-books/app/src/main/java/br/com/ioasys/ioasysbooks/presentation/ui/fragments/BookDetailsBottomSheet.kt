@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import br.com.ioasys.ioasysbooks.R
 import br.com.ioasys.ioasysbooks.databinding.BottomSheetBookDetailsBinding
 import br.com.ioasys.ioasysbooks.domain.model.Book
+import coil.load
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -52,7 +53,7 @@ class BookDetailsBottomSheet : BottomSheetDialogFragment() {
 
     private fun setupView() {
         binding.apply {
-            tvBookName.text = book?.name
+            tvBookName.text = book?.title
             tvAuthors.text = book?.author
             tvInfoPages.text = book?.pages
             tvInfoEditor.text = book?.editor
@@ -61,6 +62,9 @@ class BookDetailsBottomSheet : BottomSheetDialogFragment() {
             tvInfoTitle.text = book?.title
             tvInfoISBN10.text = book?.isbn10
             tvInfoISBN13.text = book?.isbn13
+            imgBigBook.load(book?.imageUrl) {
+                error(R.drawable.book_image)
+            }
 
             val spannableString = SpannableString("   ${book?.review}")
             val imageSpan = ImageSpan(requireContext(), R.drawable.ic_quotes)
