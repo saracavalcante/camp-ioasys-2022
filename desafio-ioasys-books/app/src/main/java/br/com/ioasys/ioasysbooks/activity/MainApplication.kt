@@ -1,6 +1,7 @@
 package br.com.ioasys.ioasysbooks.activity
 
 import android.app.Application
+import br.com.ioasys.ioasysbooks.di.dataLocalModule
 import br.com.ioasys.ioasysbooks.di.dataModule
 import br.com.ioasys.ioasysbooks.di.dataRemoteModule
 import br.com.ioasys.ioasysbooks.di.presentationModule
@@ -15,7 +16,8 @@ class MainApplication : Application() {
             modules(
                 presentationModule,
                 dataModule,
-                dataRemoteModule
+                dataRemoteModule,
+                dataLocalModule
             ).androidContext(applicationContext)
         }
     }
