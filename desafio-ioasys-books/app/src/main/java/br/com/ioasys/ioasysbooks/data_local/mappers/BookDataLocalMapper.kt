@@ -19,7 +19,7 @@ fun Book.toDao(): BookDataLocal = BookDataLocal(
 )
 
 fun BookDataLocal.toDomain(): Book = Book(
-    id = this.id ?: "",
+    id = this.id,
     title = this.title ?: "",
     author = this.author ?: "",
     pages = this.pages ?: "",

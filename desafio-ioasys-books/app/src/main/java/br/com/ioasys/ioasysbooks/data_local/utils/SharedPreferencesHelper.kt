@@ -12,10 +12,10 @@ class SharedPreferencesHelper(
         Context.MODE_PRIVATE
     )
 
-    fun savedString(key: String, value: String) = sharedPreferences.edit().run {
+    fun saveString(key: String, value: String) = sharedPreferences.edit().run {
         putString(key, value)
         apply()
     }
 
-    fun getString(key: String):String = sharedPreferences.getString(key, "") ?: ""
+    fun getString(key: String): String = sharedPreferences.getString(key, "") ?: ""
 }

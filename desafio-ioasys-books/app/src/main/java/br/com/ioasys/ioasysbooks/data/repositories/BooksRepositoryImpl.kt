@@ -15,8 +15,14 @@ class BooksRepositoryImpl(
 
     override fun getBooks(query: String?): Flow<List<Book>> = flow {
         booksLocalDataSource.getAccessToken().collect { token ->
-            bookRemoteDataSource.getBooks(token, query).collect { bookList ->
-                emit(bookList)
+            if (token.isNotEmpty()) {
+                bookRemoteDataSource.getBooks(token, query).collect { bookList ->
+                    emit(bookList)
+                }
+            } else {
+                booksLocalDataSource.getBooks(query = query).collect { bookList ->
+                    emit(bookList)
+                }
             }
         }
     }

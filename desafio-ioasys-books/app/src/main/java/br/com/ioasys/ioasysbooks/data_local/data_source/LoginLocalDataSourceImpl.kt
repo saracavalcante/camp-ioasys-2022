@@ -8,7 +8,7 @@ class LoginLocalDataSourceImpl(
     private val sharedPreferencesHelper: SharedPreferencesHelper
 ): LoginLocalDataSource {
 
-    override fun saveAccessToken(accessToken: String) = sharedPreferencesHelper.savedString(
+    override fun saveAccessToken(accessToken: String) = sharedPreferencesHelper.saveString(
         key = ACCESS_TOKEN_KEY,
         value = accessToken
     )
