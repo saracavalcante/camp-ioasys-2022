@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.ioasys.ioasysbooks.domain.repositories.LoginRepository
 import br.com.ioasys.ioasysbooks.util.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
-    private val loginRepository: LoginRepository
+    private val loginUseCase: LoginUseCase
 ): ViewModel() {
 
     private var _loggedUserViewState = MutableLiveData<ViewState<String>>()
@@ -22,7 +21,12 @@ class LoginViewModel(
             _loggedUserViewState.postLoading()
 
             try {
-                loginRepository.login(email, password).collect {
+                loginUseCase(
+                    params = LoginUseCase.Params(
+                        email = email,
+                        password = password
+                    )
+                ).collect {
                     if (it.name.isEmpty().not()) {
                         _loggedUserViewState.postSuccess(it.accessToken)
                     } else {

@@ -1,5 +1,6 @@
 package br.com.ioasys.ioasysbooks.domain.exception
 
-class LoginException : Throwable() {
+open class LoginException : Exception()
 
-}
+class InvalidEmailException : LoginException()
+class InvalidPasswordException : LoginException()
