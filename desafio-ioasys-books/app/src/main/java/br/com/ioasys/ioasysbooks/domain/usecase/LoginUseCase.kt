@@ -1,4 +1,4 @@
-package br.com.ioasys.ioasysbooks.presentation.viewmodel
+package br.com.ioasys.ioasysbooks.domain.usecase
 
 import br.com.ioasys.ioasysbooks.domain.exception.InvalidEmailException
 import br.com.ioasys.ioasysbooks.domain.exception.InvalidPasswordException

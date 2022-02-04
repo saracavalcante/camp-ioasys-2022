@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.ioasys.ioasysbooks.domain.usecase.LoginUseCase
 import br.com.ioasys.ioasysbooks.util.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -16,7 +17,6 @@ class LoginViewModel(
     val loggedUserViewState = _loggedUserViewState as LiveData<ViewState<String>>
 
     fun login(email: String, password: String ) {
-
         viewModelScope.launch {
             _loggedUserViewState.postLoading()
 
