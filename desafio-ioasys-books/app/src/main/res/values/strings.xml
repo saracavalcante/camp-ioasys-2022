@@ -24,4 +24,10 @@
     <string name="ingles">Inglês</string>
     <string name="placeholder_error">Não encontramos nenhum livro com esses termos.</string>
     <string name="list_empty">Não encontramos nenhum\nlivro com esses termos.</string>
+    <string name="informacoes">INFORMAÇÕES</string>
+    <string name="titulo_original">Título Original</string>
+    <string name="isbn_10">ISBN-10</string>
+    <string name="isbn_13">ISBN-13</string>
+    <string name="resenha_da_editora">RESENHA DA EDITORA</string>
+    <string name="pesquisar">Pesquisar</string>
 </resources>

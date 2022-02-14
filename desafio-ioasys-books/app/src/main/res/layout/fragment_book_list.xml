@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@drawable/books_background_images"
+    android:fitsSystemWindows="true"
     tools:context=".presentation.ui.fragments.BookListFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ioasys_logo"
-        app:drawableTint="@color/secondary_black"
         android:layout_marginStart="16dp"
         android:layout_marginTop="26dp"
+        android:drawableStart="@drawable/ioasys_logo"
         android:drawablePadding="8dp"
         android:gravity="center"
         android:text="@string/books"
         android:textColor="@color/secondary_black"
         android:textSize="28sp"
+        app:drawableTint="@color/secondary_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -29,20 +29,20 @@
         android:id="@+id/logOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_log_out"
         android:layout_marginHorizontal="16dp"
+        android:background="@drawable/ic_log_out"
+        app:layout_constraintBottom_toBottomOf="@+id/txtLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtLabel"
-        app:layout_constraintBottom_toBottomOf="@+id/txtLabel" />
+        app:layout_constraintTop_toTopOf="@+id/txtLabel" />
 
     <br.com.ioasys.ioasysbooks.presentation.ui.custom_views.CustomSearch
         android:id="@+id/editSearch"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:custom_hint="Pesquisar"
-        app:layout_constraintStart_toStartOf="parent"
+        app:custom_hint="@string/pesquisar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logOut" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -51,12 +51,12 @@
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
         android:clipToPadding="false"
-        tools:listitem="@layout/book_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editSearch" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editSearch"
+        tools:listitem="@layout/book_item" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvEmptyList"

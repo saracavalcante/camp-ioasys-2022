@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,9 +13,9 @@
             android:id="@+id/btnClose"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_margin="16dp"
             android:background="@drawable/ic_close"
             android:contentDescription="@string/fechar"
-            android:layout_margin="16dp"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,50 +24,50 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
-            tools:src="@drawable/ic_big_book"
-            app:layout_constraintHeight_percent="0.4"
+            android:elevation="24dp"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintHeight_percent="0.4"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/btnClose"
-            android:elevation="24dp" />
+            tools:src="@drawable/ic_big_book" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvBookName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@id/imgBigBook"
-            app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             android:layout_marginEnd="40dp"
-            android:textSize="28sp"
-            android:textColor="@color/secondary_black"
-            android:textStyle="bold"
+            android:ellipsize="end"
             android:lineSpacingMultiplier="1.2"
             android:maxLines="2"
-            android:ellipsize="end"
+            android:textColor="@color/secondary_black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/imgBigBook"
             tools:text="Change By Design Second line exa..." />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvAuthors"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintEnd_toEndOf="@id/tvBookName"
-            app:layout_constraintTop_toBottomOf="@id/tvBookName"
-            android:textSize="12sp"
             android:textColor="#AB2680"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/tvBookName"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/tvBookName"
             tools:text="Tim Brown, Julie Zhuo, Fried Maximiilian" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvInfoLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:textColor="@color/secondary_black"
-            android:textStyle="bold"
             android:layout_marginTop="24dp"
-            android:text="INFORMAÇÕES"
+            android:text="@string/informacoes"
+            android:textColor="@color/secondary_black"
+            android:textSize="12sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
             app:layout_constraintTop_toBottomOf="@id/tvAuthors" />
 
@@ -75,9 +75,9 @@
             android:id="@+id/labelsContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:gravity="start"
             android:orientation="vertical"
-            android:layout_marginTop="16dp"
             android:paddingStart="0dp"
             android:paddingEnd="8dp"
             app:layout_constraintEnd_toEndOf="@id/infoContainer"
@@ -117,21 +117,21 @@
                 style="@style/Book_Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Título Original" />
+                android:text="@string/titulo_original" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvLabelISBN10"
                 style="@style/Book_Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ISBN-10" />
+                android:text="@string/isbn_10" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvLabelISBN13"
                 style="@style/Book_Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ISBN-13" />
+                android:text="@string/isbn_13" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -151,77 +151,77 @@
                 style="@style/Book_Info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="384 páginas"/>
+                tools:text="384 páginas" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvInfoEditor"
                 style="@style/Book_Info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Editora Loyola"/>
+                tools:text="Editora Loyola" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvInfoDatePublication"
                 style="@style/Book_Info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="2020"/>
+                tools:text="2020" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvInfoLanguage"
                 style="@style/Book_Info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="@string/ingles"/>
+                tools:text="@string/ingles" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvInfoTitle"
                 style="@style/Book_Info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Change By Design"/>
+                tools:text="Change By Design" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvInfoISBN10"
                 style="@style/Book_Info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="0062856626"/>
+                tools:text="0062856626" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvInfoISBN13"
                 style="@style/Book_Info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="978-0062856623"/>
+                tools:text="978-0062856623" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-        
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvReviewLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/secondary_black"
-            android:textStyle="bold"
-            android:textSize="12sp"
             android:layout_marginTop="32dp"
-            android:text="RESENHA DA EDITORA"
-            app:layout_constraintTop_toBottomOf="@id/labelsContainer"
-            app:layout_constraintStart_toStartOf="@id/guidelineStart" />
+            android:text="@string/resenha_da_editora"
+            android:textColor="@color/secondary_black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@id/labelsContainer" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvReview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:textSize="12sp"
-            android:textColor="#999999"
-            tools:text="The subject of “design thinking” is the rage at business schools, throughout corporations, and increasingly in the popular press—due in large part to the work of IDEO, a leading design firm, and its celebrated CEO, Tim Brown, who uses this book to show how the techniques and strategies of design belong at every level."
             android:layout_marginBottom="24dp"
+            android:textColor="#999999"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvReviewLabel"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintEnd_toEndOf="@id/guidelineEnd" />
+            app:layout_constraintTop_toBottomOf="@id/tvReviewLabel"
+            tools:text="The subject of “design thinking” is the rage at business schools, throughout corporations, and increasingly in the popular press—due in large part to the work of IDEO, a leading design firm, and its celebrated CEO, Tim Brown, who uses this book to show how the techniques and strategies of design belong at every level." />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineStart"
