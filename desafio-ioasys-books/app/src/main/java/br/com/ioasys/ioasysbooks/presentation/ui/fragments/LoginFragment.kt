@@ -63,7 +63,6 @@ class LoginFragment : Fragment() {
                     )
                 }
                 is ViewState.Error -> {
-                    binding.txtError.text = state.throwable.message
                     binding.progressDialog.visibility = View.GONE
                     binding.txtError.visibility = View.VISIBLE
                 }
