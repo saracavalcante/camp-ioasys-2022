@@ -11,8 +11,10 @@ class BooksRemoteDataSoursceImpl(
     private val bookService: BookService
 ): BooksRemoteDataSource {
 
-    override fun getBooks(accessToken: String, query: String?): Flow<List<Book>> = flow {
-        val response = bookService.getBooks(accessToken = "Bearer $accessToken", page = 1)
+    override fun getBooks(accessToken: String, query: String?, page: Int, title: String): Flow<List<Book>> = flow {
+        val response = bookService.getBooks(
+            accessToken = "Bearer $accessToken", page, title)
+
         if (response.isSuccessful) {
             response.body()?.data?.let { bookList ->
                 query?.let {

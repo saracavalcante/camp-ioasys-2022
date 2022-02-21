@@ -19,13 +19,18 @@ class BookListViewModel(
     private var _bookListViewState = MutableLiveData<ViewState<List<Book>>>()
     val bookListViewState = _bookListViewState as LiveData<ViewState<List<Book>>>
 
+    var pages = 1
+
     fun search(input: String = "") {
         _bookListViewState.postLoading()
         getBookListUseCase(
             params = GetBookListUseCase.Params(
-                input = input
+                input = input,
+                page = pages,
+                title = ""
             ),
             onSuccess = {
+                pages++
                 saveBooks(bookList = it)
                 _bookListViewState.postSuccess(it)
             },

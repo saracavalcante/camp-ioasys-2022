@@ -40,8 +40,9 @@ class CustomSearch @JvmOverloads constructor(
         }
     }
 
+
     private fun configureInputSearch() {
-        input.addTextChangedListener { input ->
+        input.addTextChangedListener() { input ->
             configureInputBackground(input.isNullOrEmpty())
             textChangeListener.invoke(input.toString())
         }

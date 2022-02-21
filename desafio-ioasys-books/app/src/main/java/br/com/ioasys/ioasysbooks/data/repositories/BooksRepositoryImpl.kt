@@ -13,10 +13,10 @@ class BooksRepositoryImpl(
     private val booksLocalDataSource: BooksLocalDataSource
 ): BooksRepository {
 
-    override fun getBooks(query: String?): Flow<List<Book>> = flow {
+    override fun getBooks(query: String?, page: Int, title: String): Flow<List<Book>> = flow {
         booksLocalDataSource.getAccessToken().collect { token ->
             if (token.isNotEmpty()) {
-                bookRemoteDataSource.getBooks(token, query).collect { bookList ->
+                bookRemoteDataSource.getBooks(token, query, page, title).collect { bookList ->
                     emit(bookList)
                 }
             } else {
